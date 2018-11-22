@@ -1,0 +1,18 @@
+<div>
+  <h1>Video Listing - Admin Screen</h1>
+  <table>
+    <tr>
+      <th *ngFor="let header of video_headers">{{header}}</th>
+    </tr>    
+    <tr *ngFor="let video of videos">
+      <td>{{video.title}}</td>
+      <td>{{video.runningTime}}</td>
+      <td>{{video.genre}}</td>
+      <td>{{video.rating}}</td>
+      <td>{{video.director}}</td>
+      <td>{{video.status}}</td>
+      <td><input type="submit" value="Update"></td>
+      <td><input type="submit" value="Delete"></td>
+    </tr>    
+  </table>
+</div>
