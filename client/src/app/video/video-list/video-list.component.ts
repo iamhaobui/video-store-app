@@ -2,10 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-lists',
-  templateUrl: './lists.component.html',
-  styleUrls: ['./lists.component.css']
+  templateUrl: './video-list.component.html',
+  styleUrls: ['./video-list.component.css']
 })
-export class ListsComponent implements OnInit {
+export class VideoListComponent implements OnInit {
   @Input() videos;
   @Input() video_headers;
   @Input() customers;
