@@ -7,7 +7,7 @@ export class Video{
   status: string;
 }
 
-export const VIDEO_HEADERS: String[] = ['Title', 'Running Time', 'Genre', 'Rating', 'Director', 'Status', '']
+export const VIDEO_HEADERS: String[] = ['Title', 'Running Time', 'Genre', 'Rating', 'Director', 'Status']
 export const VIDEOS: Video[] = [
   { title: 'Lord Of The Ring', 
     runningTime: '106 minutes',
