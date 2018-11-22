@@ -1,0 +1,18 @@
+<div>
+  <table>
+    <tr>
+      <th *ngFor="let header of video_headers">{{header}}</th>
+    </tr>    
+    <tr *ngFor="let video of videos">
+      <td>{{video.title}}</td>
+      <td>{{video.runningTime}}</td>
+      <td>{{video.genre}}</td>
+      <td>{{video.rating}}</td>
+      <td>{{video.director}}</td>
+      <td>{{video.status}}</td>
+      <td *ngIf="video.status == 'Available'; else unavailable"><button>Reserve</button></td>
+      <ng-template #unavailable><pre></pre></ng-template>
+    </tr>    
+  </table>
+</div>
+<app-reserve [videos]="videos" [customers]="customers"></app-reserve>

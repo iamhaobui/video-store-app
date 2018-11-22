@@ -1,0 +1,19 @@
+<br>
+<h1>Users List</h1>
+<div>
+  <table>
+    <tr>
+      <th *ngFor="let header of customer_headers">{{header}}</th>
+    </tr>    
+    <tr *ngFor="let customer of customers">
+      <td>{{customer.fname}}</td>
+      <td>{{customer.lname}}</td>
+      <td>{{customer.address}}</td>
+      <td>{{customer.city}}</td>
+      <td>{{customer.phone}}</td>
+      <td>{{customer.status}}</td>
+      <td><input type="submit" value="Update"></td>
+      <td><input type="submit" value="Delete"></td>
+    </tr>    
+  </table>
+</div>
