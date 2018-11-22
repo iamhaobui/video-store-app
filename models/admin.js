@@ -24,7 +24,7 @@ const AdminSchema = mongoose.Schema({
 const Admin = module.exports = mongoose.model('Admin', AdminSchema);
 
 module.exports.getUserById = function(id, callback) {
-    User.findById(id, callback);
+    Admin.findById(id, callback);
 }
 
 module.exports.getUserByUsername = function(username, callback) {
@@ -40,4 +40,11 @@ module.exports.addAdmin = function(newAdmin, callback) {
             newAdmin.save(callback); 
         })
     })
+}
+
+module.exports.comparePassword = function(candidatePassword, hash, callback) {
+    bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
+        if(err) throw err;
+        callback(null, isMatch);
+    });
 }

@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const config = require('./config/database');
 
 // Connect to Database
-mongoose.connect(config.database);
+mongoose.connect(config.database,  {useNewUrlParser: true});
 
 // On Connection
 mongoose.connection.on('connected', () => {
@@ -42,6 +42,12 @@ app.get('/', (req, res) => {
 
 // Body Parser Middleware
 app.use(bodyParser.json());
+
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
 
 app.use('/admins', admins);
 app.use('/videos', videos);
