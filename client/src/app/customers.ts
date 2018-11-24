@@ -7,7 +7,7 @@ export class Customer{
   phone: string;
   status: string;
 }
-export const CUSTOMER_HEADERS: String[] = ['First Name', 'Last Name', 'Address', 'City', 'Phone Number', 'Status', '', '']; 
+export const CUSTOMER_HEADERS: String[] = ['First Name', 'Last Name', 'Address', 'City', 'Phone Number', 'Status']; 
 export const CUSTOMERS: Customer[] = [
   { id: 0,
     fname: 'John',

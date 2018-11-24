@@ -1,5 +1,5 @@
 <div>
-  <table>
+  <table id="myTable">
     <tr>
       <th *ngFor="let header of video_headers">{{header}}</th>
     </tr>    
@@ -10,9 +10,10 @@
       <td>{{video.rating}}</td>
       <td>{{video.director}}</td>
       <td>{{video.status}}</td>
-      <td *ngIf="video.status == 'Available'; else unavailable"><button>Reserve</button></td>
-      <ng-template #unavailable><pre></pre></ng-template>
+      <td *ngIf="video.status == 'Available'; else unavailable">
+        <a routerLink="/reserve" class="btn btn-default">Reserve</a>
+      </td>
+      <ng-template #unavailable><p></p></ng-template>
     </tr>    
   </table>
 </div>
-<app-reserve [videos]="videos" [customers]="customers"></app-reserve>

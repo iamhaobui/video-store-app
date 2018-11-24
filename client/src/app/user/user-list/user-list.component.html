@@ -1,6 +1,5 @@
-<br>
-<h1>Users List</h1>
 <div>
+  <h1>Users List</h1>
   <table>
     <tr>
       <th *ngFor="let header of customer_headers">{{header}}</th>
@@ -12,8 +11,6 @@
       <td>{{customer.city}}</td>
       <td>{{customer.phone}}</td>
       <td>{{customer.status}}</td>
-      <td><input type="submit" value="Update"></td>
-      <td><input type="submit" value="Delete"></td>
     </tr>    
   </table>
 </div>

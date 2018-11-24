@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { VIDEO_HEADERS, VIDEOS } from 'src/app/videos';
 
 @Component({
   selector: 'app-update',
@@ -6,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-  @Input() videos;
-  @Input() video_headers;
+  videos = VIDEOS;
+  video_headers = VIDEO_HEADERS.slice(0);
   constructor() { }
 
   ngOnInit() {

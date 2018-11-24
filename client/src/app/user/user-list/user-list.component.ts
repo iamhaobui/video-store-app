@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CUSTOMERS, CUSTOMER_HEADERS } from 'src/app/customers';
 
 @Component({
   selector: 'app-user-list',

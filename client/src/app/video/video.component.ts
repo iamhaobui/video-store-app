@@ -7,11 +7,6 @@ import { Customer, CUSTOMERS, CUSTOMER_HEADERS } from '../customers';
   styleUrls: ['./video.component.css']
 })
 export class VideoComponent implements OnInit {
-  videos = VIDEOS;
-  video_headers = VIDEO_HEADERS;
-
-  customers = CUSTOMERS;
-  customer_header = CUSTOMER_HEADERS;
   constructor() { }
 
   ngOnInit() {

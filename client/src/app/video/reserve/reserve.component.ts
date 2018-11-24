@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { VIDEOS, VIDEO_HEADERS } from 'src/app/videos';
 
 @Component({
   selector: 'app-reserve',
@@ -6,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./reserve.component.css']
 })
 export class ReserveComponent implements OnInit {
-  @Input() videos;
-  @Input() customers;
+  videos = VIDEOS;
+  video_headers = VIDEO_HEADERS;
 
   constructor() { }
 

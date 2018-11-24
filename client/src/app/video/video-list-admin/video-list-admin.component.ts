@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { VIDEOS, VIDEO_HEADERS } from 'src/app/videos';
 
 @Component({
   selector: 'app-video-list-admin',
@@ -6,14 +7,14 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./video-list-admin.component.css'],
 })
 export class VideoListAdminComponent implements OnInit {
-  @Input() videos;
-  @Input() video_headers;
+  videos = VIDEOS;
+  video_headers = VIDEO_HEADERS.slice(0);
 
   constructor() { }
 
   ngOnInit() {
-    this.video_headers.push("");
-    this.video_headers.push("");
+    this.video_headers.push('');
+    this.video_headers.push('');
   }
 
 }
