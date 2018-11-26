@@ -27,5 +27,20 @@ export class AuthService {
     this.admin = admin;
   }
 
+  loggedIn() {
+    if (localStorage.id_token == undefined) {
+      return false
+    } else {
+      const helper = new JwtHelperService();
+      return !helper.isTokenExpired(localStorage.id_token); 
+    }
+  }
+
+  logout() {
+    this.authToken = null;
+    this.admin = null;
+    localStorage.clear();
+  }
+
 
 }
