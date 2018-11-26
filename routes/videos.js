@@ -37,8 +37,17 @@ router.get('/lists', function(req, res) {
   });
 
 // Delete Video
-
-
+router.delete('/delete/:id', function(req, res) {
+    var id = req.params.id;
+    Video.findOneAndDelete({_id: id}, function(err, deletedObject) {
+        if (err) {
+            console.log(err);
+            res.status(500).send();
+        } else {
+            res.json(deletedObject);
+        }
+    })
+})
 
 // Update Video 
 router.put('/update/:id', function(req, res) {
