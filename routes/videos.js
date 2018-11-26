@@ -7,7 +7,7 @@ const Video = require('../models/video');
 router.post('/add', (req, res, next) => {
     let newVideo = new Video({
         title: req.body.title,
-        time: req.body.time,
+        runningTime: req.body.time,
         genre: req.body.genre,
         rating: req.body.rating,
         director: req.body.director,
@@ -38,5 +38,54 @@ router.get('/lists', function(req, res) {
 
 // Delete Video
 
+
+
+// Update Video 
+router.put('/update/:id', function(req, res) {
+    var id = req.params.id;
+    Video.findOne({_id: id}, function(err, foundObject) {
+        if (err) {
+            console.log(err);
+            res.status(500).send();
+        } else {
+            if (!foundObject) {
+                res.status(404).send();
+            } else {
+                if(req.body.title) {
+                    foundObject.title = req.body.title;
+                }
+
+                if (req.body.runningTime) {
+                    foundObject.runningTime = req.body.runningTime;
+                }
+
+                if (req.body.genre) {
+                    foundObject.genre = req.body.genre;
+                }
+
+                if (req.body.rating) {
+                    foundObject.rating = req.body.rating;
+                }
+
+                if (req.body.director) {
+                    foundObject.director = req.body.director;
+                }
+
+                if (req.body.status) {
+                    foundObject.status = req.body.status;
+                }
+
+                foundObject.save(function(err, updatedObject) {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).send();
+                    } else {
+                        res.json(updatedObject);
+                    }
+                })
+            }
+        }
+    })
+})
 
 module.exports = router;
