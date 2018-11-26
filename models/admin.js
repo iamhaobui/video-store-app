@@ -50,7 +50,7 @@ module.exports.addAdmin = function(newAdmin, callback) {
     })
 }
 
-module.exports.comparePassword = function(candidatePassword, hash, callback) {
+module.exports.comparePassword = function(candidatePassword, password, callback) {
     bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
         if(err) throw err;
         callback(null, isMatch);

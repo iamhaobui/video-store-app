@@ -35,9 +35,7 @@ router.post('/authenticate', (req, res, next) => {
             return res.json({success: false, msg: 'Admin User not found'});
         }
 
-        Admin.comparePassword(password, admin.password, (err, isMatch) => {
-            if (err) throw err;
-            if (isMatch) {
+            if (password == admin.password) {
                 const token = jwt.sign(admin.toJSON(), config.secret, {
                     expiresIn: 604800 // 1 week
                 });
@@ -55,7 +53,6 @@ router.post('/authenticate', (req, res, next) => {
             } else {
                 return res.json({success: false, msg: 'Wrong Password'});
             }
-        })
     })
 });
 

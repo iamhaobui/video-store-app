@@ -16,7 +16,7 @@ export class AuthService {
   authenticateUser(admin) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('admins/authenticate', admin, {headers: headers})
+    return this.http.post('http://localhost:3000/admins/authenticate', admin, {headers: headers})
       .pipe(map(res => res.json()));
   }
 

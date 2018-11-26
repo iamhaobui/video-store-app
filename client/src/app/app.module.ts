@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { FlashMessagesModule} from 'angular2-flash-messages';
 import { HttpModule} from '@angular/http';
+import { FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,7 +50,8 @@ const appRoutes = [
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot(),
-    HttpModule
+    HttpModule, 
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
