@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
+import { FlashMessagesModule} from 'angular2-flash-messages';
+import { HttpModule} from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,8 @@ import { VideoListAdminComponent } from './video/video-list-admin/video-list-adm
 import { AddNewComponent } from './video/add-new/add-new.component';
 import { UpdateComponent } from './video/update/update.component';
 import { HomeComponent } from './home/home.component';
+
+import { AuthService} from './services/auth.service';
 
 const appRoutes = [
   { path: '', component: HomeComponent},
@@ -44,8 +48,10 @@ const appRoutes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
+    FlashMessagesModule.forRoot(),
+    HttpModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
