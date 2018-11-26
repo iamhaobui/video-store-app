@@ -23,6 +23,19 @@ router.post('/add', (req, res, next) => {
     })
 })
 
+// Get Videos 
+router.get('/lists', function(req, res) {
+    Video.find({}, function(err, videos) {
+      var videoMap = {};
+  
+      videos.forEach(function(video) {
+        videoMap[video._id] = video;
+      });
+  
+      res.json(videoMap);
+    });
+  });
+
 // Delete Video
 
 
