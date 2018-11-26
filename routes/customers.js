@@ -48,7 +48,53 @@ router.delete('/delete/:id', function(req, res) {
     })
 })
 
+// Update Customer 
+router.put('/update/:id', function(req, res) {
+    var id = req.params.id;
+    Customer.findOne({_id: id}, function(err, foundObject) {
+        if (err) {
+            console.log(err);
+            res.status(500).send();
+        } else {
+            if(!foundObject) {
+                res.status(404).send();
+            } else {
+                if (req.body.fname) {
+                    foundObject.fname = req.body.fname;
+                }
 
+                if (req.body.lname) {
+                    foundObject.lname = req.body.lname;
+                }
+
+                if (req.body.address) {
+                    foundObject.address = req.body.address;
+                }
+
+                if (req.body.city) {
+                    foundObject.city = req.body.city;
+                }
+
+                if (req.body.phone) {
+                    foundObject.phone = req.body.phone;
+                }
+
+                if (req.body.status) {
+                    foundObject.status = req.body.status;
+                }
+
+                foundObject.save(function(err, updatedObject) {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).send();
+                    } else {
+                        res.json(updatedObject);
+                    }
+                })
+            }
+        }
+    })
+})
 
 
 
