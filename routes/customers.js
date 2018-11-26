@@ -35,5 +35,21 @@ router.get('/lists', (req, res) => {
     });
 });
 
+// Delete Customer
+router.delete('/delete/:id', function(req, res) {
+    var id = req.params.id;
+    Customer.findOneAndDelete({_id: id}, function(err, deletedObject) {
+        if (err) {
+            console.log(err);
+            res.status(500).send();
+        } else {
+            res.json(deletedObject);
+        }
+    })
+})
+
+
+
+
 
 module.exports = router;
