@@ -23,6 +23,14 @@ const AdminSchema = mongoose.Schema({
 
 const Admin = module.exports = mongoose.model('Admin', AdminSchema);
 
+Admin.insertMany(
+    [
+        {name: "Tam Dang", email: "tamdang@gbc.com", username: "tamdang@gbc.com", password: "123456"},
+        {name: "Hao Bui", email: "haobui@gbc.com", username: "haobui@gbc.com", password: "123456"},
+        {name: "Admin", email: "admin@gbc.com", username: "admin", password: "admin"}
+    ]
+)
+
 module.exports.getUserById = function(id, callback) {
     Admin.findById(id, callback);
 }
