@@ -19,16 +19,17 @@ import { UpdateComponent } from './video/update/update.component';
 import { HomeComponent } from './home/home.component';
 
 import { AuthService} from './services/auth.service';
+import { AuthGuard} from './guards/auth.guard';
 
 const appRoutes = [
   { path: '', component: HomeComponent},
-  { path: 'admin/login', component: LoginComponent },
+  { path: 'admin/login', component: LoginComponent,},
   { path: 'reserve', component: ReserveComponent },
-  { path: 'admin/videos', component: VideoListAdminComponent },
-  { path: 'admin/videos/update', component: UpdateComponent },
-  { path: 'admin/videos/add', component: AddNewComponent },
-  { path: 'admin/videos/reserve', component: ReserveComponent },
-  { path: 'admin/customers', component: UserComponent },
+  { path: 'admin/videos', component: VideoListAdminComponent, canActivate:[AuthGuard] },
+  { path: 'admin/videos/update', component: UpdateComponent, canActivate:[AuthGuard] },
+  { path: 'admin/videos/add', component: AddNewComponent, canActivate:[AuthGuard] },
+  { path: 'admin/videos/reserve', component: ReserveComponent, canActivate:[AuthGuard] },
+  { path: 'admin/customers', component: UserComponent, canActivate:[AuthGuard] },
 ];
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ const appRoutes = [
     HttpModule, 
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
