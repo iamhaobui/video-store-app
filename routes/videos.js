@@ -32,7 +32,7 @@ router.get('/lists', function(req, res) {
         videoMap[video._id] = video;
       });
   
-      res.json(videoMap);
+      res.json({videoMap});
     });
   });
 

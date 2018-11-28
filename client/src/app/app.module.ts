@@ -19,6 +19,7 @@ import { UpdateComponent } from './video/update/update.component';
 import { HomeComponent } from './home/home.component';
 
 import { AuthService} from './services/auth.service';
+import { VideoService} from './services/video.service';
 import { AuthGuard} from './guards/auth.guard';
 
 const appRoutes = [
@@ -54,7 +55,7 @@ const appRoutes = [
     HttpModule, 
     FormsModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, VideoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

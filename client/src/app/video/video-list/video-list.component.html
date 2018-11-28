@@ -1,5 +1,5 @@
 <div>
-  <table id="myTable">
+  <table id="myTable" *ngIf="videos !== null">
     <tr>
       <th *ngFor="let header of video_headers">{{header}}</th>
     </tr>    
@@ -16,4 +16,5 @@
       <ng-template #unavailable><p></p></ng-template>
     </tr>    
   </table>
+  
 </div>
