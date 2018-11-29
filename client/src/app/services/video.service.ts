@@ -19,5 +19,12 @@ export class VideoService {
               catchError(err => throwError(err))
             );
   }
-  
+  loadVideos() {
+    const headers = new Headers;
+    headers.append('Content-Type', 'application/json');
+    return this.http.get('http://localhost:3000/videos/lists')
+      .pipe(map(res => res.json()));
+  }
+
+
 }

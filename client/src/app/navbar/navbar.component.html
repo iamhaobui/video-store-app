@@ -16,17 +16,17 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form> 
       <!-- <div *ngIf="token == null; else loggedIn"> -->
-        <li class="nav-item active">
-          <a *ngIf="!isLoggedIn()" class="btn btn1" (click)="onLogin()" role="button" aria-pressed="true">Admin Login</a>
+        <li *ngIf="!authService.loggedIn()" class="nav-item active">
+          <a class="btn btn1" (click)="onLogin()" role="button" aria-pressed="true">Admin Login</a>
         </li>
-        <li class="nav-item">
-          <a *ngIf="!isLoggedIn()" class="btn btn1" (click)="onRegister()" role="button" aria-pressed="true">Register</a>
+        <li *ngIf="!authService.loggedIn()" class="nav-item">
+          <a class="btn btn1" (click)="onRegister()" role="button" aria-pressed="true">Register</a>
         </li>
       <!-- </div>     -->
       <!-- <ng-template #loggedIn> -->
-        <p *ngIf="isLoggedIn()">Welcome {{username}}</p>
-        <li class="nav-item">
-          <a *ngIf="isLoggedIn()" class="btn btn1" (click)="onLogout()" role="button" aria-pressed="true">Log out</a>
+        <p *ngIf="authService.loggedIn()">Welcome {{username}}</p>
+        <li *ngIf="authService.loggedIn()" class="nav-item">
+          <a class="btn btn1" (click)="onLogoutClick()" role="button" aria-pressed="true">Log out</a>
         </li>
       <!-- </ng-template>       -->
   </ul>

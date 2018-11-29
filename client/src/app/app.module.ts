@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { FlashMessagesModule} from 'angular2-flash-messages';
+import { HttpModule} from '@angular/http';
+import { FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,15 +22,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdminLoginService } from './services/admin-login.service';
 import { VideoService } from './services/video.service';
 
+import { AuthService} from './services/auth.service';
+import { AuthGuard} from './guards/auth.guard';
+
 const appRoutes = [
   { path: '', component: VideoListComponent},
   { path: 'admin/login', component: LoginComponent },
   { path: 'reserve', component: ReserveComponent },
-  { path: 'admin/videos', component: VideoListAdminComponent },
-  { path: 'admin/videos/update', component: UpdateComponent },
-  { path: 'admin/videos/add', component: AddNewComponent },
-  { path: 'admin/videos/reserve', component: ReserveComponent },
-  { path: 'admin/customers', component: UserComponent },
+  { path: 'admin/videos', component: VideoListAdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin/videos/update', component: UpdateComponent, canActivate: [AuthGuard] },
+  { path: 'admin/videos/add', component: AddNewComponent, canActivate: [AuthGuard] },
+  { path: 'admin/videos/reserve', component: ReserveComponent, canActivate: [AuthGuard] },
+  { path: 'admin/customers', component: UserComponent, canActivate: [AuthGuard] },
 ];
 @NgModule({
   declarations: [
@@ -53,8 +57,11 @@ const appRoutes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
+    FlashMessagesModule.forRoot(),
+    HttpModule,
+    FormsModule
   ],
-  providers: [AdminLoginService, VideoService],
+  providers: [AdminLoginService, VideoService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

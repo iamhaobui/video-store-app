@@ -23,6 +23,14 @@ const AdminSchema = mongoose.Schema({
 
 const Admin = module.exports = mongoose.model('Admin', AdminSchema);
 
+Admin.insertMany(
+    [
+        {name: "Tam Dang", email: "tamdang@gbc.com", username: "tamdang@gbc.com", password: "123456"},
+        {name: "Hao Bui", email: "haobui@gbc.com", username: "haobui@gbc.com", password: "123456"},
+        {name: "Admin", email: "admin@gbc.com", username: "admin", password: "admin"}
+    ]
+)
+
 module.exports.getUserById = function(id, callback) {
     Admin.findById(id, callback);
 }
@@ -42,7 +50,7 @@ module.exports.addAdmin = function(newAdmin, callback) {
     })
 }
 
-module.exports.comparePassword = function(candidatePassword, hash, callback) {
+module.exports.comparePassword = function(candidatePassword, password, callback) {
     bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
         if(err) throw err;
         callback(null, isMatch);

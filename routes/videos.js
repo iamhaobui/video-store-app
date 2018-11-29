@@ -23,7 +23,78 @@ router.post('/add', (req, res, next) => {
     })
 })
 
-// Delete Video
+// Get Videos 
+router.get('/lists', function(req, res) {
+    Video.find({}, function(err, videos) {
+      var videoMap = {};
+  
+      videos.forEach(function(video) {
+        videoMap[video._id] = video;
+      });
+  
+      res.json({videoMap});
+    });
+  });
 
+// Delete Video
+router.delete('/delete/:id', function(req, res) {
+    var id = req.params.id;
+    Video.findOneAndDelete({_id: id}, function(err, deletedObject) {
+        if (err) {
+            console.log(err);
+            res.status(500).send();
+        } else {
+            res.json(deletedObject);
+        }
+    })
+})
+
+// Update Video 
+router.put('/update/:id', function(req, res) {
+    var id = req.params.id;
+    Video.findOne({_id: id}, function(err, foundObject) {
+        if (err) {
+            console.log(err);
+            res.status(500).send();
+        } else {
+            if (!foundObject) {
+                res.status(404).send();
+            } else {
+                if(req.body.title) {
+                    foundObject.title = req.body.title;
+                }
+
+                if (req.body.runningTime) {
+                    foundObject.runningTime = req.body.runningTime;
+                }
+
+                if (req.body.genre) {
+                    foundObject.genre = req.body.genre;
+                }
+
+                if (req.body.rating) {
+                    foundObject.rating = req.body.rating;
+                }
+
+                if (req.body.director) {
+                    foundObject.director = req.body.director;
+                }
+
+                if (req.body.status) {
+                    foundObject.status = req.body.status;
+                }
+
+                foundObject.save(function(err, updatedObject) {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).send();
+                    } else {
+                        res.json(updatedObject);
+                    }
+                })
+            }
+        }
+    })
+})
 
 module.exports = router;

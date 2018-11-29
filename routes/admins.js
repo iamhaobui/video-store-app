@@ -35,9 +35,7 @@ router.post('/authenticate', (req, res, next) => {
             return res.json({success: false, msg: 'Admin User not found'});
         }
 
-        Admin.comparePassword(password, admin.password, (err, isMatch) => {
-            if (err) throw err;
-            if (isMatch) {
+            if (password == admin.password) {
                 const token = jwt.sign(admin.toJSON(), config.secret, {
                     expiresIn: 604800 // 1 week
                 });
@@ -55,13 +53,13 @@ router.post('/authenticate', (req, res, next) => {
             } else {
                 return res.json({success: false, msg: 'Wrong Password'});
             }
-        })
     })
 });
 
 // Profile 
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
     res.json({admin: req.user});
+    console.log({admin: req.user})
 });
 
 module.exports = router;
