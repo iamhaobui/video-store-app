@@ -1,4 +1,4 @@
 module.exports = {
-    database: 'mongodb://localhost:27017/videostoreapp',
+    mongoURI: 'mongodb://admin:admin123@ds263317.mlab.com:63317/videostore',
     secret: 'yoursecret'
 }
