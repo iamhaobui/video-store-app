@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">VideoStoreApp</a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul *ngIf="authService.loggedIn()" class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/admin/videos">Admin Videos<span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/admin/videos">Videos</a>
       </li> 
       <li class="nav-item active">
-          <a class="nav-link" routerLink="/admin/customers">Admin Customers<span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/admin/customers">Customers</a>
         </li>      
     </ul>    
     
