@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,8 @@ import { VideoListAdminComponent } from './video/video-list-admin/video-list-adm
 import { AddNewComponent } from './video/add-new/add-new.component';
 import { UpdateComponent } from './video/update/update.component';
 import { HomeComponent } from './home/home.component';
+
+import { AdminLoginService } from './services/admin-login.service';
 
 const appRoutes = [
   { path: '', component: HomeComponent},
@@ -43,9 +47,11 @@ const appRoutes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [AdminLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
