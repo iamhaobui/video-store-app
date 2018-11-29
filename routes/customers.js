@@ -19,7 +19,7 @@ router.post('/add', (req, res, next) => {
         } else {
             res.json({success: true, msg: 'New Customer added'});
         }
-    })
+    }) 
 });
 
 // Get Customers 
@@ -31,7 +31,7 @@ router.get('/lists', (req, res) => {
             customerMap[customer._id] = customer;
         });
 
-        res.json(customerMap);
+        res.json({customerMap});
     });
 });
 

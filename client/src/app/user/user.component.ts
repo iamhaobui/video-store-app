@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CUSTOMERS, CUSTOMER_HEADERS } from '../customers';
+import { CustomerService} from '../services/customer.service';
 
 @Component({
   selector: 'app-user',
@@ -7,11 +8,17 @@ import { CUSTOMERS, CUSTOMER_HEADERS } from '../customers';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  customers = CUSTOMERS;
   customer_headers = CUSTOMER_HEADERS;
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
+  customers: Object[] = [];
   ngOnInit() {
+    this.customerService.loadCustomers().subscribe(data => {
+      console.log(data);  
+      for (let key in data) {
+        this.customers.push(data[key]);
+      }
+    })
   }
 
 }
