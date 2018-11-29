@@ -16,11 +16,13 @@ import { VideoListAdminComponent } from './video/video-list-admin/video-list-adm
 import { AddNewComponent } from './video/add-new/add-new.component';
 import { UpdateComponent } from './video/update/update.component';
 import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 import { AdminLoginService } from './services/admin-login.service';
+import { VideoService } from './services/video.service';
 
 const appRoutes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: VideoListComponent},
   { path: 'admin/login', component: LoginComponent },
   { path: 'reserve', component: ReserveComponent },
   { path: 'admin/videos', component: VideoListAdminComponent },
@@ -43,6 +45,7 @@ const appRoutes = [
     AddNewComponent,
     UpdateComponent,
     HomeComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,7 @@ const appRoutes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [AdminLoginService],
+  providers: [AdminLoginService, VideoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

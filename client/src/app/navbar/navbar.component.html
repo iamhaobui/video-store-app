@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">VideoStoreApp</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/admin/videos">Videos<span class="sr-only">(current)</span></a>
+      </li> 
+      <li class="nav-item active">
+          <a class="nav-link" routerLink="/admin/customers">Customers<span class="sr-only">(current)</span></a>
+        </li>      
+    </ul>    
+    
+    <ul class="navbar-nav ml-auto right">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> 
+      <!-- <div *ngIf="token == null; else loggedIn"> -->
+        <li class="nav-item active">
+          <a *ngIf="!isLoggedIn()" class="btn btn1" (click)="onLogin()" role="button" aria-pressed="true">Admin Login</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!isLoggedIn()" class="btn btn1" (click)="onRegister()" role="button" aria-pressed="true">Register</a>
+        </li>
+      <!-- </div>     -->
+      <!-- <ng-template #loggedIn> -->
+        <p *ngIf="isLoggedIn()">Welcome {{username}}</p>
+        <li class="nav-item">
+          <a *ngIf="isLoggedIn()" class="btn btn1" (click)="onLogout()" role="button" aria-pressed="true">Log out</a>
+        </li>
+      <!-- </ng-template>       -->
+  </ul>
+  </div>
+</nav>

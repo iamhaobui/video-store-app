@@ -1,12 +1,11 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { VIDEOS, VIDEO_HEADERS } from 'src/app/videos';
 import { CUSTOMERS } from 'src/app/customers';
 
 @Component({
   selector: 'app-video-lists',
   templateUrl: './video-list.component.html',
-  styleUrls: ['./video-list.component.css'],
-  encapsulation: ViewEncapsulation.Native,
+  styleUrls: ['./video-list.component.css']
 })
 
 export class VideoListComponent implements OnInit {

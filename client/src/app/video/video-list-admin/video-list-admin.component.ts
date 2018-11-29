@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { VIDEOS, VIDEO_HEADERS } from 'src/app/videos';
 
 @Component({

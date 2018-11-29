@@ -7,7 +7,7 @@ const Video = require('../models/video');
 router.post('/add', (req, res, next) => {
     let newVideo = new Video({
         title: req.body.title,
-        time: req.body.time,
+        runningTime: req.body.runningTime,
         genre: req.body.genre,
         rating: req.body.rating,
         director: req.body.director,

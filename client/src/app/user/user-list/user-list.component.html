@@ -1,9 +1,10 @@
-<div>
-  <h1>Users List</h1>
-  <table>
+<table align="center" class="table">
+  <thead class="thead-dark">
     <tr>
-      <th *ngFor="let header of customer_headers">{{header}}</th>
-    </tr>    
+      <th scope="col" *ngFor="let header of customer_headers">{{header}}</th>
+    </tr>
+  </thead>
+  <tbody>    
     <tr *ngFor="let customer of customers">
       <td>{{customer.fname}}</td>
       <td>{{customer.lname}}</td>
@@ -11,6 +12,6 @@
       <td>{{customer.city}}</td>
       <td>{{customer.phone}}</td>
       <td>{{customer.status}}</td>
-    </tr>    
-  </table>
-</div>
+    </tr>  
+  </tbody>  
+</table>

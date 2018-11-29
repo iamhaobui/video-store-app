@@ -1,8 +1,5 @@
-<br>
-<h2>Reserve Videos</h2>
-<div>
-  <form action="">
-  <table>
+<form action="">
+  <table align="center" class="table">
     <tr>
       <td rowspan="7">Image</td>
       <td>Title</td>
@@ -35,10 +32,8 @@
       </td>
     </tr>
     <tr>
-      <td><a routerLink="/" class="btn btn-default">Back</a></td>
-      <td><a class="btn btn-default">Reserve</a></td>
+      <td><button class="btn btn-primary" (click)="goBack()">Back</button></td>
+      <td><button class="btn btn-primary" (click)="onReserve()">Reserve</button></td>
     </tr>
   </table>
 </form>
-</div>
-<br>

@@ -7,8 +7,8 @@ import {map, catchError} from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AdminLoginService {
-  // authToken: any;
-  // user: any;
+  authToken: any;
+  user: any;
   constructor(private http: Http) { }
   authenticateAdmin(user) {
     const headers = new Headers();
@@ -18,5 +18,16 @@ export class AdminLoginService {
               map(res => res.json()),
               catchError(err => throwError(err))
             );
+  }
+  storeAdminData(token, user) {
+    localStorage.setItem('id_token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    this.authToken = token;
+    this.user = user;
+  }
+  logoutAdmin() {
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
   }
 }

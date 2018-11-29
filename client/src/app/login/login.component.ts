@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminLoginService } from '../services/admin-login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,14 @@ import { AdminLoginService } from '../services/admin-login.service';
 export class LoginComponent implements OnInit {
   username: string;
   password: string;
-  constructor(private adminLoginService: AdminLoginService) { }
+  token: any;
+  constructor(
+    private adminLoginService: AdminLoginService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
+    this.token = localStorage.getItem('id_token');
   }
 
   onLogin() {
@@ -19,7 +25,14 @@ export class LoginComponent implements OnInit {
       username: this.username,
       password: this.password
     };
-    this.adminLoginService.authenticateAdmin(user).subscribe(data => console.log(data));
+    this.adminLoginService.authenticateAdmin(user).subscribe(data => {
+      if (data.success) {
+        this.adminLoginService.storeAdminData(data.token, data.admin);
+        this.router.navigate(['admin/videos']);
+      } else {
+        this.router.navigate(['admin/login']);
+      }
+    });
   }
 
 }
