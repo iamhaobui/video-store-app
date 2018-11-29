@@ -1,3 +1,4 @@
+{{text}}
 <table align="center" class="table">
   <thead class="thead-dark">
     <tr>
@@ -5,7 +6,7 @@
     </tr>  
   </thead> 
   <tbody> 
-    <tr *ngFor="let video of videos">
+    <tr *ngFor="let video of videos | filter : searchText">
       <td>{{video.title}}</td>
       <td>{{video.runningTime}}</td>
       <td>{{video.genre}}</td>
