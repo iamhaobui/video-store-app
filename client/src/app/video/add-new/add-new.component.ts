@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { VideoService } from '../../services/video.service';
+import { FlashMessagesService} from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-add-new',
@@ -20,6 +21,7 @@ export class AddNewComponent implements OnInit {
     private router: Router,
     private location: Location,
     private videoService: VideoService,
+    private flashMessage: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -36,7 +38,21 @@ export class AddNewComponent implements OnInit {
       status: this.status,
       director: this.director
     };
-    this.videoService.addVideo(video).subscribe(data => console.log(data));
+    this.videoService.addVideo(video).subscribe(data => {
+      if (data.success) {
+        this.flashMessage.show("Successfully added new Video", {
+          cssClass: "alert-success",
+          timeout: 5000
+        });
+        this.router.navigate(['admin/videos']);
+        console.log(data);
+      } else {
+        this.flashMessage.show("Failed to added new Video, please try again", {
+          cssClass: "alert-danger",
+          timeout: 5000
+        });
+      }
+    });
   }
 
 }
