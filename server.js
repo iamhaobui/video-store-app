@@ -36,10 +36,12 @@ app.get('/', (req, res) => {
 // Import Routes
 const admins = require('./routes/admins');
 const videos = require('./routes/videos');
+const customers = require('./routes/customers');
 
 // Route config
 app.use('/admins', admins);
 app.use('/videos', videos);
+app.use('/customers', customers);
 
 // Port Number
 const port = 3000;
