@@ -8,7 +8,6 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 import { VideoListComponent } from './video/video-list/video-list.component';
 import { ReserveComponent } from './video/reserve/reserve.component';
 import { UserComponent } from './user/user.component';
@@ -17,14 +16,17 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { VideoListAdminComponent } from './video/video-list-admin/video-list-admin.component';
 import { AddNewComponent } from './video/add-new/add-new.component';
 import { UpdateComponent } from './video/update/update.component';
-import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
+import { AdminLoginService } from './services/admin-login.service';
+import { VideoService } from './services/video.service';
 import { AuthService} from './services/auth.service';
-import { VideoService} from './services/video.service';
 import { AuthGuard} from './guards/auth.guard';
+import { FilterPipe } from './filter.pipe';
+
 
 const appRoutes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: VideoListComponent},
   { path: 'admin/login', component: LoginComponent,},
   { path: 'reserve', component: ReserveComponent },
   { path: 'admin/videos', component: VideoListAdminComponent, canActivate:[AuthGuard] },
@@ -36,8 +38,6 @@ const appRoutes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent,
-    // VideoComponent,
     VideoListComponent,
     ReserveComponent,
     UserComponent,
@@ -46,18 +46,21 @@ const appRoutes = [
     VideoListAdminComponent,
     AddNewComponent,
     UpdateComponent,
-    HomeComponent,
+    NavbarComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot(),
     HttpModule, 
     FormsModule, 
     HttpClientModule
   ],
-  providers: [AuthService, AuthGuard, VideoService],
+  providers: [AdminLoginService, AuthService, AuthGuard, VideoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

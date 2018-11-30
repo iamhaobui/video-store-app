@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VIDEO_HEADERS, VIDEOS } from 'src/app/videos';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 import { Video} from '../../videos';
 import { VideoService} from '../../services/video.service';
 import { ActivatedRoute} from '@angular/router';
@@ -27,6 +29,8 @@ export class UpdateComponent implements OnInit {
 
   constructor(
     private videoService: VideoService,
+    private router: Router,
+    private location: Location,
     private route: ActivatedRoute
   ) { }
 
@@ -65,6 +69,9 @@ export class UpdateComponent implements OnInit {
       console.log(data);
       
     });
+  }
+  goBack() {
+    this.location.back();
   }
 
 }

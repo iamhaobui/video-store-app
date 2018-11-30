@@ -14,7 +14,11 @@ export class AuthService {
   constructor(private http: Http) { }
 
   authenticateUser(admin) {
+<<<<<<< HEAD
+    const headers = new Headers();
+=======
     let headers = new Headers();
+>>>>>>> master
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/admins/authenticate', admin, {headers: headers})
       .pipe(map(res => res.json()));
@@ -28,11 +32,19 @@ export class AuthService {
   }
 
   loggedIn() {
+<<<<<<< HEAD
+    if (localStorage.id_token === undefined) {
+      return false;
+    } else {
+      const helper = new JwtHelperService();
+      return !helper.isTokenExpired(localStorage.id_token);
+=======
     if (localStorage.id_token == undefined) {
       return false
     } else {
       const helper = new JwtHelperService();
       return !helper.isTokenExpired(localStorage.id_token); 
+>>>>>>> master
     }
   }
 

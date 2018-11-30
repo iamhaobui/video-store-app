@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">VideoStoreApp</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul *ngIf="authService.loggedIn()" class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/admin/videos">Videos</a>
+      </li> 
+      <li class="nav-item active">
+          <a class="nav-link" routerLink="/admin/customers">Customers</a>
+        </li>      
+    </ul>    
+    
+    <ul class="navbar-nav ml-auto right">
+      <input (keyup)="onKey($event)" class="form-control mr-sm-2" type="search" placeholder="Search by title" aria-label="Search">
+      <li *ngIf="!authService.loggedIn()" class="nav-item active">
+        <a class="btn btn1" (click)="onLogin()" role="button" aria-pressed="true">Admin Login</a>
+      </li>
+      <li *ngIf="!authService.loggedIn()" class="nav-item">
+        <a class="btn btn1" (click)="onRegister()" role="button" aria-pressed="true">Register</a>
+      </li>
+
+      <div class="dropdown show" *ngIf="authService.loggedIn()">
+        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome, {{username}}</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="btn btn-secondary dropdown-item" role="button" (click)="onLogoutClick()">Log out</a>
+        </div>
+      </div>      
+    </ul>
+  </div>
+</nav>

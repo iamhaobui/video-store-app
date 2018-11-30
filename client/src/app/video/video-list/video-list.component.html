@@ -1,9 +1,17 @@
+<<<<<<< HEAD
+{{text}}
+<table align="center" class="table">
+  <thead class="thead-dark">
+=======
 <div>
   <table id="myTable" *ngIf="videos !== null">
+>>>>>>> master
     <tr>
-      <th *ngFor="let header of video_headers">{{header}}</th>
-    </tr>    
-    <tr *ngFor="let video of videos">
+      <th scope="col" *ngFor="let header of video_headers">{{header}}</th>
+    </tr>  
+  </thead> 
+  <tbody> 
+    <tr *ngFor="let video of videos | filter : searchText">
       <td>{{video.title}}</td>
       <td>{{video.runningTime}}</td>
       <td>{{video.genre}}</td>
@@ -11,10 +19,15 @@
       <td>{{video.director}}</td>
       <td>{{video.status}}</td>
       <td *ngIf="video.status == 'Available'; else unavailable">
-        <a routerLink="/reserve" class="btn btn-default">Reserve</a>
+        <a routerLink="/reserve" class="btn btn-primary" role="button">Reserve</a>
       </td>
       <ng-template #unavailable><p></p></ng-template>
     </tr>    
+<<<<<<< HEAD
+  </tbody>
+</table>
+=======
   </table>
   
 </div>
+>>>>>>> master

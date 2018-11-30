@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { HttpClient} from '@angular/common/http';
 import { HttpHeaders} from '@angular/common/http';
 import { Video} from '../videos';
-import { Observable} from 'rxjs';
+import { Observable, throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,16 @@ export class VideoService {
   constructor(private http: Http,
     private httpClient: HttpClient) { }
 
+  addVideo(video: any) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/videos/add', video, {headers: headers})
+            .pipe(
+              map(res => res.json()),
+              catchError(err => throwError(err))
+            );
+  }
+    
   loadVideos() {
     let headers = new Headers;
     headers.append('Content-type', 'application/json');

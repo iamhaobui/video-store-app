@@ -7,7 +7,7 @@ const Video = require('../models/video');
 router.post('/add', (req, res, next) => {
     let newVideo = new Video({
         title: req.body.title,
-        runningTime: req.body.time,
+        runningTime: req.body.runningTime,
         genre: req.body.genre,
         rating: req.body.rating,
         director: req.body.director,
@@ -102,7 +102,7 @@ router.put('/update/:id', function(req, res) {
                         console.log(err);
                         res.status(500).send();
                     } else {
-                        res.json({updatedObject});
+                        res.json(updatedObject);
                     }
                 })
             }

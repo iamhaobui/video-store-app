@@ -1,17 +1,29 @@
-<div>
-  <h1>Video Listing - Admin Screen</h1>
-  <a routerLink="/admin/videos/add" class="btn btn-default">Add New Video</a>
-  <br>
-  <table>
+<table align="center" class="table">
+  <thead class="thead-dark">
     <tr>
-      <th *ngFor="let header of video_headers">{{header}}</th>
+      <th scope="col" *ngFor="let header of video_headers">{{header}}</th>
     </tr>    
+<<<<<<< HEAD
+  </thead>
+  <tbody>
+    <tr *ngFor="let video of videos | filter : searchText" >
+=======
     <tr *ngFor="let video of videos; let i = index;">
+>>>>>>> master
       <td>{{video.title}}</td>
       <td>{{video.runningTime}}</td>
       <td>{{video.genre}}</td>
       <td>{{video.rating}}</td>
       <td>{{video.director}}</td>
+<<<<<<< HEAD
+      <td>{{video.status}}</td>
+      <td><a routerLink="/admin/videos/update" class="btn btn-primary" role="button">Update</a></td>
+      <td><button class="btn btn-primary" (click)="onDelete()">Delete</button></td>
+    </tr>      
+  </tbody>  
+</table>
+<button id="btnAdd" routerLink="/admin/videos/add" class="btn btn-primary">Add New Video</button>
+=======
       <td>{{video.status}} {{video._id}}</td>
       
       <td><a [routerLink]="['/admin/videos/update/', video._id]" class="btn btn-default">Update</a></td>
@@ -19,3 +31,4 @@
     </tr>    
   </table>
 </div>
+>>>>>>> master

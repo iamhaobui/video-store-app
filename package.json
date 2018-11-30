@@ -1,31 +1,31 @@
 {
   "name": "videostoreapp",
   "version": "1.0.0",
-  "description": "Video Store app ",
-  "main": "app.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
-  },
-  "dependencies": {
-    "bcryptjs": "*",
-    "body-parser": "*",
-    "cors": "*",
-    "express": "*",
-    "jsonwebtoken": "*",
-    "mongoose": "*",
-    "nodemon": "^1.18.6",
-    "passport": "*",
-    "passport-jwt": "*"
+    "test": "node server",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tddag/VideoStoreApp.git"
   },
   "author": "Tam Dang",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/tddag/VideoStoreApp/issues"
   },
-  "homepage": "https://github.com/tddag/VideoStoreApp#readme"
+  "homepage": "https://github.com/tddag/VideoStoreApp#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.3.14",
+    "nodemon": "^1.18.7",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0"
+  }
 }

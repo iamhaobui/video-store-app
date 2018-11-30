@@ -1,6 +1,17 @@
-<div class="container-fluid">
-  <div>
+<form (submit)="onLoginSubmit()">
     <h2>Admin Login</h2>
+<<<<<<< HEAD
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+=======
     <form (submit)="onLoginSubmit()">
       <table>
         <tr>
@@ -19,3 +30,4 @@
     </form>
   </div>
 </div>
+>>>>>>> master
