@@ -36,6 +36,19 @@ router.get('/lists', function(req, res) {
     });
   });
 
+// Get Video
+router.get('/get/:id', function(req, res) {
+    var id = req.params.id;
+    Video.findById(id, function(err, videoFound) {
+        if (err) {
+            console.log(err);
+            res.status(500).send();
+        } else {
+            res.json(videoFound);
+        }
+    })
+})
+
 // Delete Video
 router.delete('/delete/:id', function(req, res) {
     var id = req.params.id;

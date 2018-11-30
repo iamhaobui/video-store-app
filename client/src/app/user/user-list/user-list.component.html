@@ -1,10 +1,15 @@
 <table align="center" class="table">
   <thead class="thead-dark">
     <tr>
+<<<<<<< HEAD
       <th scope="col" *ngFor="let header of customer_headers">{{header}}</th>
     </tr>
   </thead>
   <tbody>    
+=======
+      <th *ngFor="let header of customer_headers">{{header}}</th>
+    </tr>  
+>>>>>>> master
     <tr *ngFor="let customer of customers">
       <td>{{customer.fname}}</td>
       <td>{{customer.lname}}</td>
