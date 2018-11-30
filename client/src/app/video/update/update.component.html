@@ -1,54 +1,61 @@
 <div>
   <h2>Update Videos</h2>
-  <form action="">
+  <form (submit)="onUpdateSubmit()">
   <table>
     <tr>
       <td rowspan="7">Image</td>
       <td>Title</td>
-      <td>{{videos[0].title}}</td>
+      <td> <input type="text" [(ngModel)]="title" name="title" ></td>
     </tr>
     <tr>
       <td>Running Time</td>
-      <td>{{videos[0].runningTime}}</td>
+      <td> <input type="text" [(ngModel)]="runningTime" name="runningTime" ></td>
     </tr>
     <tr>
       <td>Genre</td>
-      <td>
+      <td> <input type="text" [(ngModel)]="genre" name="genre" ></td>
+
+      <!-- <td>
         <div>            
           <select name="genres" >
             <option value="0">Select a genre</option>
           </select>            
         </div>
-      </td>
+      </td> -->
     </tr>
     <tr>
       <td>Rating</td>
-      <td>
+      <td> <input type="text" [(ngModel)]="rating" name="rating" ></td>
+
+      <!-- <td>
         <div>            
           <select name="ratings" >
             <option value="0">Select a rating</option>
           </select>            
         </div>
-      </td>
+      </td> -->
     </tr>
     <tr>
       <td>Director</td>
-      <td><input type="text" name="director"></td>
+      <td> <input type="text" [(ngModel)]="director" name="director" ></td>
     </tr>
     <tr>
       <td>Status</td>
-      <td>
+      <td> <input type="text" [(ngModel)]="status" name="status" ></td>
+
+      <!-- <td>
         <div>            
           <select name="status" >
             <option value="Available">Available</option>
             <option value="Unavailable">Unavailable</option>
           </select>            
         </div>
-      </td>
+      </td> -->
     </tr>
     <tr>
       <td><a routerLink="/admin/videos" class="btn btn-default">Back</a></td>
-      <td><a class="btn btn-default">Update</a></td>
+      <!-- <td><a class="btn btn-default">Update</a></td> -->
+      <td> <input type="submit" class="btn btn-primary" value="Update"></td>
     </tr>
   </table>
 </form>

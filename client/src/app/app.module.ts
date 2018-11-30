@@ -4,6 +4,7 @@ import { Route, RouterModule } from '@angular/router';
 import { FlashMessagesModule} from 'angular2-flash-messages';
 import { HttpModule} from '@angular/http';
 import { FormsModule} from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +28,7 @@ const appRoutes = [
   { path: 'admin/login', component: LoginComponent,},
   { path: 'reserve', component: ReserveComponent },
   { path: 'admin/videos', component: VideoListAdminComponent, canActivate:[AuthGuard] },
-  { path: 'admin/videos/update', component: UpdateComponent, canActivate:[AuthGuard] },
+  { path: 'admin/videos/update/:id', component: UpdateComponent, canActivate:[AuthGuard] },
   { path: 'admin/videos/add', component: AddNewComponent, canActivate:[AuthGuard] },
   { path: 'admin/videos/reserve', component: ReserveComponent, canActivate:[AuthGuard] },
   { path: 'admin/customers', component: UserComponent, canActivate:[AuthGuard] },
@@ -53,7 +54,8 @@ const appRoutes = [
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot(),
     HttpModule, 
-    FormsModule
+    FormsModule, 
+    HttpClientModule
   ],
   providers: [AuthService, AuthGuard, VideoService],
   bootstrap: [AppComponent]
