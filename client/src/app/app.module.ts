@@ -18,7 +18,6 @@ import { AddNewComponent } from './video/add-new/add-new.component';
 import { UpdateComponent } from './video/update/update.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
-import { AdminLoginService } from './services/admin-login.service';
 import { VideoService } from './services/video.service';
 import { AuthService} from './services/auth.service';
 import { AuthGuard} from './guards/auth.guard';
@@ -60,7 +59,7 @@ const appRoutes = [
     FormsModule, 
     HttpClientModule
   ],
-  providers: [AdminLoginService, AuthService, AuthGuard, VideoService],
+  providers: [AuthService, AuthGuard, VideoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

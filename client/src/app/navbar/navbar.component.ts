@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { AdminLoginService } from '../services/admin-login.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { AuthService} from '../services/auth.service';
