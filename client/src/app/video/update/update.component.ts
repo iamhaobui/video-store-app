@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Video} from '../../videos';
 import { VideoService} from '../../services/video.service';
 import { ActivatedRoute} from '@angular/router';
+import { FlashMessagesService} from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-update',
@@ -31,7 +32,8 @@ export class UpdateComponent implements OnInit {
     private videoService: VideoService,
     private router: Router,
     private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private flashMessage: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -66,10 +68,23 @@ export class UpdateComponent implements OnInit {
 
     // Update Video
     this.videoService.updateVideo(this.id, newVideo).subscribe(data => {
-      console.log(data);
-      
-    });
+      if (data != null) {
+        this.flashMessage.show('You successfully updated video', {
+          cssClass: 'alert-success',
+          timeout: 5000});  
+          this.router.navigate(['admin/videos']);      
+          console.log(data);
+      } else {
+        this.flashMessage.show("Failed to update video! Please try again", {
+          cssClass: 'alert-danger',
+          timeout: 5000});
+          this.router.navigate(['admin/videos']);
+        }
+      });
   }
+
+    // redirect to admin video list
+  
   goBack() {
     this.location.back();
   }
