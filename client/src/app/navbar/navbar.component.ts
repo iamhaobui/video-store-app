@@ -35,7 +35,8 @@ export class NavbarComponent implements OnInit {
   }
   ngOnInit() {
     this.token = localStorage.getItem('id_token');
-    this.username = JSON.parse(localStorage.getItem('admin')).username;
+    let admin:any = JSON.parse(localStorage.getItem('admin'));
+    this.username = admin != null? admin.username : "";
     this.dataService.currentText.subscribe(searchText => this.searchText = searchText);
   }
   onLogin() {
