@@ -46,6 +46,12 @@ export class VideoService {
             headers: headers});
   }
 
+  deleteVideo(id) {
+    let headers = new HttpHeaders;
+    headers.append('Content-type', 'application/json');
+    return this.httpClient.delete(`http://localhost:3000/videos/delete/${id}`, {headers: headers});
+  }
+
 
 
 
