@@ -22,8 +22,6 @@ export class VideoListAdminComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.video_headers.push('');
-    this.video_headers.push('');
     this.dataService.currentText.subscribe(searchText => this.searchText = searchText);
     this.videoService.loadVideos().subscribe(data => {
       for (let key in data.videoMap) {
