@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   loggedIn() {
-    if (localStorage.id_token == undefined) {
+    if (localStorage.id_token === undefined) {
       return false
     } else {
       const helper = new JwtHelperService();
