@@ -1,62 +1,7 @@
-<<<<<<< HEAD
-<form action="">
-    <h1>Add New Video</h1>
-    <table align="center" class="table">
-      <tr>
-        <td rowspan="7">Image</td>
-        <td><b>Title</b></td>
-        <td>{{videos[0].title}}</td>
-      </tr>
-      <tr>
-        <td><b>Running Time</b></td>
-        <td>{{videos[0].runningTime}}</td>
-      </tr>
-      <tr>
-        <td><b>Genre</b></td>
-        <td>
-          <div>            
-            <select name="genres" >
-              <option value="0">Select a genre</option>
-            </select>            
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td><b>Rating</b></td>
-        <td>
-          <div>            
-            <select name="ratings" >
-              <option value="0">Select a rating</option>
-            </select>            
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td><b>Director</b></td>
-        <td><input type="text" name="director"></td>
-      </tr>
-      <tr>
-        <td><b>Status</b></td>
-        <td>
-          <div>            
-            <select name="status" >
-              <option value="Available">Available</option>
-              <option value="Unavailable">Unavailable</option>
-            </select>            
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td><button class="btn btn-primary" (click)="goBack()">Back</button></td>
-        <td><button class="btn btn-primary" (click)="onDelete()">Update</button></td>
-      </tr>
-    </table>
-  </form>
-=======
 <div>
-  <h2>Update Videos</h2>
+  <h1>Update Video</h1>
   <form (submit)="onUpdateSubmit()">
-  <table>
+  <table align="center" class="table">
     <tr>
       <td rowspan="7">Image</td>
       <td>Title</td>
@@ -116,4 +61,3 @@
 </form>
 </div>
 <br>
->>>>>>> master
