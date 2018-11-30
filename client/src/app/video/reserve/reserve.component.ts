@@ -12,6 +12,13 @@ export class ReserveComponent implements OnInit {
   videos = VIDEOS;
   video_headers = VIDEO_HEADERS;
 
+  title: string;
+  runningTime: string;
+  genre: string;
+  rating: string;
+  director: string;
+  status: string; 
+
  constructor(
     private router: Router,
     private location: Location,
