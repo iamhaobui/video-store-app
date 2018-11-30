@@ -51,4 +51,30 @@ export class ReserveComponent implements OnInit {
     this.location.back();
   }
 
+  onReserve() {
+    const newVideo = {
+      title: this.title,
+      runningTime: this.runningTime,
+      genre: this.genre,
+      rating: this.rating,
+      director: this.director,
+      status: "Unavailable"
+    }
+
+    // Update Video
+    this.videoService.updateVideo(this.id, newVideo).subscribe(data => {
+      if (data != null) {
+        this.flashMessage.show('You successfully reserved video', {
+          cssClass: 'alert-success',
+          timeout: 5000});  
+          this.router.navigate(['']);      
+          console.log(data);
+      } else {
+        this.flashMessage.show("Failed to reserved video! Please try again", {
+          cssClass: 'alert-danger',
+          timeout: 5000});
+        }
+      });
+  }
+
 }
