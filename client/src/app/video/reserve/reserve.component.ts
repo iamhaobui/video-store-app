@@ -5,7 +5,7 @@ import { ActivatedRoute} from '@angular/router';
 import { Router } from '@angular/router';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { VideoService} from '../../services/video.service';
-
+import { CustomerService} from '../../services/customer.service';
 
 @Component({
   selector: 'app-reserve',
@@ -15,23 +15,23 @@ import { VideoService} from '../../services/video.service';
 export class ReserveComponent implements OnInit {
   videos = VIDEOS;
   video_headers = VIDEO_HEADERS;
+  customers: Object[] = [];
 
   title: string;
   runningTime: string;
   genre: string;
   rating: string;
   director: string;
-  status: string; 
-
+  status: string;
   private id = this.route.snapshot.paramMap.get('id');
-
-
- constructor(
+  
+  constructor(
     private router: Router,
     private location: Location,
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private flashMessage: FlashMessagesService,
-    private videoService: VideoService
+    private videoService: VideoService,
+    private customerService: CustomerService,
   ) { }
 
   ngOnInit() {
@@ -46,6 +46,11 @@ export class ReserveComponent implements OnInit {
         this.status = video.status;
       }
       )
+      this.customerService.loadCustomers().subscribe(data => { 
+        for (let key in data) {
+          this.customers.push(data[key]);
+        }
+      })
   }
   goBack() {
     this.location.back();

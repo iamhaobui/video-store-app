@@ -1,3 +1,4 @@
+{{customers}}
 <form action="">
   <table align="center" class="table">
     <tr>
@@ -25,8 +26,8 @@
       <td>Customer</td>
       <td>
         <div>            
-          <select name="customers" >
-            <option *ngFor="let customer of customers" value="{{customer.name}}">{{customer.name}}</option>
+          <select name="customers" [(ngModel)]="customers">
+            <option *ngFor="let customer of customers" value="customer.id">{{customer.fname}} {{customer.lname}}</option>  
           </select>            
         </div>
       </td>
