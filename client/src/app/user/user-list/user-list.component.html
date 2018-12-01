@@ -5,7 +5,7 @@
     </tr>
   </thead>
   <tbody>    
-    <tr *ngFor="let customer of customers">
+    <tr *ngFor="let customer of customers | filter: searchText">
       <td>{{customer.fname}}</td>
       <td>{{customer.lname}}</td>
       <td>{{customer.address}}</td>
