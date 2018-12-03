@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CUSTOMERS, CUSTOMER_HEADERS } from 'src/app/customers';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-user-list',
@@ -9,10 +9,15 @@ import { CUSTOMERS, CUSTOMER_HEADERS } from 'src/app/customers';
 export class UserListComponent implements OnInit {
   @Input() customers;
   @Input() customer_headers;
-  constructor() { }
+
+  searchText: string;
+
+  constructor(
+    private dataService: DataService,
+  ) { }
 
   ngOnInit() {
-    
+    this.dataService.currentText.subscribe(searchText => this.searchText = searchText);
   }
 
 }

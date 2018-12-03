@@ -15,7 +15,6 @@ export class VideoListComponent implements OnInit {
   video_headers = ['Title', 'Running Time', 'Genre', 'Rating', 'Director', 'Status'];
   customers =  CUSTOMERS;
   searchText: string;
-
   constructor(
     private videoService: VideoService,
     private dataService: DataService,

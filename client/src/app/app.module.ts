@@ -22,17 +22,17 @@ import { VideoService } from './services/video.service';
 import { AuthService} from './services/auth.service';
 import { AuthGuard} from './guards/auth.guard';
 import { FilterPipe } from './filter.pipe';
-
+import {DataService} from './services/data.service';
 
 const appRoutes = [
   { path: '', component: VideoListComponent},
-  { path: 'admin/login', component: LoginComponent,},
-  { path: 'reserve', component: ReserveComponent },
-  { path: 'admin/videos', component: VideoListAdminComponent, canActivate:[AuthGuard] },
-  { path: 'admin/videos/update/:id', component: UpdateComponent, canActivate:[AuthGuard] },
-  { path: 'admin/videos/add', component: AddNewComponent, canActivate:[AuthGuard] },
-  { path: 'admin/videos/reserve/:id', component: ReserveComponent, canActivate:[AuthGuard] },
-  { path: 'admin/customers', component: UserComponent, canActivate:[AuthGuard] },
+  { path: 'admin/login', component: LoginComponent},
+  { path: 'reserve', component: ReserveComponent},
+  { path: 'admin/videos', component: VideoListAdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin/videos/update/:id', component: UpdateComponent, canActivate: [AuthGuard] },
+  { path: 'admin/videos/add', component: AddNewComponent, canActivate: [AuthGuard] },
+  { path: 'admin/videos/reserve/:id', component: ReserveComponent, canActivate: [AuthGuard] },
+  { path: 'admin/customers', component: UserComponent, canActivate: [AuthGuard] },
 ];
 @NgModule({
   declarations: [
@@ -46,7 +46,7 @@ const appRoutes = [
     AddNewComponent,
     UpdateComponent,
     NavbarComponent,
-    FilterPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -55,11 +55,11 @@ const appRoutes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule.forRoot(),
-    HttpModule, 
-    FormsModule, 
+    HttpModule,
+    FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, AuthGuard, VideoService],
+  providers: [AuthService, AuthGuard, VideoService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

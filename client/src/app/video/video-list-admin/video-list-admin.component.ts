@@ -3,7 +3,6 @@ import { VIDEOS, VIDEO_HEADERS } from 'src/app/videos';
 import { DataService } from '../../services/data.service';
 import { VideoService} from '../../services/video.service';
 import { FlashMessagesService} from 'angular2-flash-messages';
-import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-video-list-admin',
@@ -15,10 +14,10 @@ export class VideoListAdminComponent implements OnInit {
   video_headers = VIDEO_HEADERS.slice(0);
 
   searchText: string;
-  constructor(private videoService: VideoService,
+  constructor(
+    private videoService: VideoService,
     private dataService: DataService,
-    private flashMessage: FlashMessagesService,
-    private router: Router
+    private flashMessage: FlashMessagesService
     ) { }
 
   ngOnInit() {
