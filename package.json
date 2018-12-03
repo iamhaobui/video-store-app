@@ -2,10 +2,10 @@
   "name": "videostoreapp",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "test": "node server",
-    "start": "node server.js"
+    "test": "node app",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
