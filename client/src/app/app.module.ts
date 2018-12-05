@@ -31,7 +31,7 @@ const appRoutes = [
   { path: 'admin/videos', component: VideoListAdminComponent, canActivate: [AuthGuard] },
   { path: 'admin/videos/update/:id', component: UpdateComponent, canActivate: [AuthGuard] },
   { path: 'admin/videos/add', component: AddNewComponent, canActivate: [AuthGuard] },
-  { path: 'admin/videos/reserve/:id', component: ReserveComponent, canActivate: [AuthGuard] },
+  { path: 'videos/reserve/:id', component: ReserveComponent },
   { path: 'admin/customers', component: UserComponent, canActivate: [AuthGuard] },
 ];
 @NgModule({

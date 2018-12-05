@@ -14,7 +14,7 @@
       <td>{{video.director}}</td>
       <td>{{video.status}}</td>
       <td *ngIf="video.status == 'Available'; else unavailable">
-        <a routerLink="/admin/videos/reserve/{{video._id}}" class="btn btn-primary" role="button">Reserve</a>
+        <a routerLink="videos/reserve/{{video._id}}" class="btn btn-primary" role="button">Reserve</a>
       </td>
       <ng-template #unavailable><p></p></ng-template>
     </tr>    
