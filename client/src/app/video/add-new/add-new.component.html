@@ -11,11 +11,30 @@
     </tr>
     <tr>
       <td><b>Genre</b></td>
-      <td><input type="text" class="form-control" [(ngModel)]="genre" name="genre" placeholder="Enter genre"></td>
+      <td>
+        <div>            
+          <select name="genre" [(ngModel)]="genre">
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Science">Science</option>
+            <option value="Fiction">Fiction</option>
+          </select>            
+        </div>
+      </td>
     </tr>
     <tr>
       <td><b>Rating</b></td>
-      <td><input type="text" class="form-control" [(ngModel)]="rating" name="rating" placeholder="Enter rating"></td>
+      <td>
+        <div>            
+          <select name="rating" [(ngModel)]="rating">
+            <option value="1 star">1 star</option>
+            <option value="2 stars">2 stars</option>
+            <option value="3 stars">3 stars</option>
+            <option value="4 stars">4 stars</option>
+            <option value="5 stars">5 stars</option>
+          </select>            
+        </div>
+      </td>
     </tr>
     <tr>
       <td><b>Director</b></td>
