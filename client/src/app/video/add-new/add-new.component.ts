@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { VideoService } from '../../services/video.service';
 import { FlashMessagesService} from 'angular2-flash-messages';
+import { FormGroup, FormBuilder,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-new',
@@ -17,27 +18,42 @@ export class AddNewComponent implements OnInit {
   status: string;
   director: string;
 
+  videoForm: FormGroup;
+
   constructor(
     private router: Router,
     private location: Location,
     private videoService: VideoService,
-    private flashMessage: FlashMessagesService
+    private flashMessage: FlashMessagesService,
+    private formBuilder: FormBuilder
+
   ) { }
 
   ngOnInit() {
+    this.videoForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      runningTime: [''],
+      genre: ['', Validators.required],
+      rating: [''],
+      status: ['', Validators.required],
+      director: [''],
+    })
   }
   goBack() {
     this.location.back();
   }
   addVideo() {
+    console.log(this.videoForm.get('rating').value, this.videoForm.get('genre').value);
     const video = {
-      title: this.title,
-      runningTime: this.runningTime,
-      genre: this.genre,
-      rating: this.rating,
-      status: this.status,
-      director: this.director
+      title: this.videoForm.get('title').value,
+      runningTime: this.videoForm.get('runningTime').value,
+      genre: this.videoForm.get('genre').value,
+      rating: this.videoForm.get('rating').value,
+      status: this.videoForm.get('status').value,
+      director: this.videoForm.get('director').value
     };
+    console.log(video.rating);
+
     this.videoService.addVideo(video).subscribe(data => {
       if (data.success) {
         this.flashMessage.show("Successfully added new Video", {
