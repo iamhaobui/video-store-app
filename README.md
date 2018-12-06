@@ -2,7 +2,7 @@
 Angular Project
 
 # Steps for running app
-1. Run npm install
-2. Run npm install-client
-3. Run npm start
+1. Run 'npm install' for server package
+2. Run 'npm install-client' for front-end server
+3. Run 'npm start' for starting app 
 4. Log in with Username: admin - Password: admin
