@@ -15,9 +15,6 @@
       <li *ngIf="!authService.loggedIn()" class="nav-item active">
         <a class="btn btn1" (click)="onLogin()" role="button" aria-pressed="true">Admin Login</a>
       </li>
-      <li *ngIf="!authService.loggedIn()" class="nav-item">
-        <a class="btn btn1" (click)="onRegister()" role="button" aria-pressed="true">Register</a>
-      </li>
 
       <div class="dropdown show" *ngIf="authService.loggedIn()">
         <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome, {{username}}</a>
