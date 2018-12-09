@@ -8,5 +8,5 @@ Angular Project
 4. Log in with Username: admin - Password: admin
 
 # Members
-Duy Hao Bui - 101104656
-Danh Tam Dang - 101092895
+1. Duy Hao Bui - 101104656
+2. Danh Tam Dang - 101092895
