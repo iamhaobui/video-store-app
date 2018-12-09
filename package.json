@@ -2,9 +2,9 @@
   "name": "videostoreapp",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
+    "client-install": "cd client && npm install",
     "start": "npm run dev",
     "server": "node server.js",
     "client": "npm start --prefix client",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/tddag/VideoStoreApp.git"
   },
-  "author": "Tam Dang",
+  "author": "Tam Dang + Hao Bui",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tddag/VideoStoreApp/issues"
