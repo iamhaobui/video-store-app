@@ -1,5 +1,5 @@
 # VideoStoreApp
-Angular Project
+Angular Project that list a video using Angular 6, MongoDB and JWT-token
 
 # Steps for running app
 1. Run 'npm install' for server package
